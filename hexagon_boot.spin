@@ -36,12 +36,14 @@ if erc > 1
       tv.str(string(", halting!",13))
       abort 32
 
-sdda.setup_music(sdda#MUSIC_COURTESY,contigFile(string("COURTESY.RAW")),fat.fileSize)
-sdda.setup_music(sdda#MUSIC_OTIS,contigFile(string("OTIS.RAW")),fat.fileSize)
-sdda.setup_music(sdda#MUSIC_FOCUS,contigFile(string("FOCUS.RAW")),fat.fileSize)
-sdda.setup_music(sdda#MUSIC_BLACKWHITE,contigFile(string("FINAL.RAW")),fat.fileSize)
+sdda.setup_music(sdda#MUSIC_COURTESY,contigFile(string("COURTESY.VU")),fat.fileSize)
+sdda.setup_music(sdda#MUSIC_OTIS,contigFile(string("OTIS.VU")),fat.fileSize)
+sdda.setup_music(sdda#MUSIC_FOCUS,contigFile(string("FOCUS.VU")),fat.fileSize)
+sdda.setup_music(sdda#MUSIC_BLACKWHITE,contigFile(string("FINAL.VU")),fat.fileSize)
 
-sdda.setup_sfx(sdda#SFX_TITLE,contigFile(string("HEXTITLE.RAW")),fat.fileSize) 
+sdda.setup_sfx(sdda#SFX_TITLE,contigFile(string("HEXTITLE.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_CHOOSE,contigFile(string("HEXCHOOS.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_SELECT,contigFile(string("HEXSELEC.RAW")),fat.fileSize)
 sdda.setup_sfx(sdda#SFX_BEGIN,contigFile(string("HEXBEGIN.RAW")),fat.fileSize)
 sdda.setup_sfx(sdda#SFX_LINE,contigFile(string("HEXL2.RAW")),fat.fileSize)
 sdda.setup_sfx(sdda#SFX_TRIANGLE,contigFile(string("HEXL3.RAW")),fat.fileSize)
@@ -67,7 +69,7 @@ case fat.partitionError
       tv.str(erc)
       abort 35
     clust := fat.getCurrentFileCluster
-    repeat 128
+    repeat 128 ' zero out one sector
       fat.writeLong(0)
     fat.closeFile
   other:
