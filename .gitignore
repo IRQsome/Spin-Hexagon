@@ -1,4 +1,6 @@
 *.binary
+*.BIN
+*.BI2
 *.lst
 *.pasm
 *.dat

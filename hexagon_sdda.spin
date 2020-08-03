@@ -5,8 +5,8 @@
 #0,SFX_TITLE,SFX_BEGIN,SFX_LINE,SFX_TRIANGLE,SFX_SQUARE,SFX_PENTAGON,SFX_HEXAGON,SFX_EXCELLENT,SFX_GAMEOVER,SFX_COUNT
 
 STASH_LOC = $8000 - STASH_SIZE*4
-STASH_SIZE = (1 + 1 + MUSIC_COUNT*2 + SFX_COUNT*2)
-STASH_SIGNATURE
+STASH_SIZE = (1 + 1 + MUSIC_COUNT*2 + SFX_COUNT*2 + 1) ' +1 for safety or smth IDK it makes stuff work
+STASH_SIGNATURE = $8EC5A60F
 
 OBJ
 
@@ -48,20 +48,22 @@ if savesector
   sdda.writeSector(savesector,where)
 
 PUB sdda_start(asmptr)
-sdda.start(sdinfo,plat#spiDO,plat#spiCLK,plat#spiDI,plat#spiCS,plat#audioLeft,plat#audioRight,32_000,asmptr)
+sdda.start(sdinfo,asmptr)
 
 
 PUB unstash
 if result:=long[STASH_LOC]==STASH_SIGNATURE
   longmove(@sdinfo,STASH_LOC+4,STASH_SIZE)
 
-PUB setup_music(n,start,stop)
-musicstarts[n]:=start
-musicstops[n]:=stop
+PUB setup_music(n,sector,size)
+sector<<=1
+musicstarts[n]:=sector
+musicstops[n]:=sector + (size+255)>>8
 
-PUB setup_sfx(n,start,stop)
-sfxstarts[n]:=start
-sfxstops[n]:=stop
+PUB setup_sfx(n,sector,size)
+sector<<=2
+sfxstarts[n]:=sector
+sfxstops[n]:=sector + size>>7
 
 PUB stash(sdinfo_in,saveptr_in)
 longmove(@sdinfo,@sdinfo_in,2)

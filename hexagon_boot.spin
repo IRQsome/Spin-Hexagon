@@ -36,9 +36,20 @@ if erc > 1
       tv.str(string(", halting!",13))
       abort 32
 
-sdda.setup_music(sdda#MUSIC_COURTESY,contigFile(string("GHOSTLY.RAW")),(fat.fileSize+255)>>8)
-sdda.setup_music(sdda#MUSIC_COURTESY,contigFile(string("420.RAW")),(fat.fileSize+255)>>8)
-sdda.setup_music(sdda#MUSIC_COURTESY,contigFile(string("HLYSTONE.RAW")),(fat.fileSize+255)>>8)
+sdda.setup_music(sdda#MUSIC_COURTESY,contigFile(string("COURTESY.RAW")),fat.fileSize)
+sdda.setup_music(sdda#MUSIC_OTIS,contigFile(string("OTIS.RAW")),fat.fileSize)
+sdda.setup_music(sdda#MUSIC_FOCUS,contigFile(string("FOCUS.RAW")),fat.fileSize)
+sdda.setup_music(sdda#MUSIC_BLACKWHITE,contigFile(string("FINAL.RAW")),fat.fileSize)
+
+sdda.setup_sfx(sdda#SFX_TITLE,contigFile(string("HEXTITLE.RAW")),fat.fileSize) 
+sdda.setup_sfx(sdda#SFX_BEGIN,contigFile(string("HEXBEGIN.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_LINE,contigFile(string("HEXL2.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_TRIANGLE,contigFile(string("HEXL3.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_SQUARE,contigFile(string("HEXL4.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_PENTAGON,contigFile(string("HEXL5.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_HEXAGON,contigFile(string("HEXL6.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_EXCELLENT,contigFile(string("HEXEXEL.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_GAMEOVER,contigFile(string("HEXGOVER.RAW")),fat.fileSize)      
 
 tv.str(string(13,"Checking save file... "))
 savepath:=string("HEXAGON.SAV")
