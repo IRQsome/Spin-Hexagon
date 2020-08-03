@@ -2282,10 +2282,9 @@ rebootCodeFillLoop      mov     SPIextraBuffer,        cardRebootSectors        
 ' //////////////////////Clear Memory///////////////////////////////////////////////////////////////////////////////////////////
 
 rebootCodeClear         rdword  counter,               #$8                          ' Setup to clear the rest.
-                        mov     SPIExtraCounter,       fiveHundredAndTwelve         '
-                        shl     SPIExtraCounter,       #6                           '
+                        mov     SPIExtraCounter,       memEnd                                                                              '
 
-rebootCodeClearLoop     ''HAXX wrbyte fiveHundredAndTwelve, counter                 ' Clear the remaining memory.
+rebootCodeClearLoop     wrbyte fiveHundredAndTwelve, counter                        ' Clear the remaining memory.
                         add     counter,               #1                           '
                         cmp     counter,               SPIExtraCounter wz           '
 if_nz                   jmp     #rebootCodeClearLoop                                '
@@ -2688,6 +2687,8 @@ HCSBitMask              long    %01_000000_00000000_00000000_00000000           
 
 rebootInterpreter       long    (($00_01 << 18) | ($3C_01 << 4) | ($00_00 << 0))    ' Spin interpreter text boot information.
 rebootStackMarker       long    $FF_F9_FF_FF                                        ' Spin interpreter stack boot information.
+
+memEnd                  long $8000-512
 
 ' //////////////////////Configuration Settings/////////////////////////////////////////////////////////////////////////////////
 
