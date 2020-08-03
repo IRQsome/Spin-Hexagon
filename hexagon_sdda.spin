@@ -2,11 +2,13 @@
 
 #0,MUSIC_COURTESY,MUSIC_OTIS,MUSIC_FOCUS,MUSIC_BLACKWHITE,MUSIC_COUNT
 
-#0,SFX_TITLE,SFX_BEGIN,SFX_LINE,SFX_TRIANGLE,SFX_SQUARE,SFX_PENTAGON,SFX_HEXAGON,SFX_EXCELLENT,SFX_GAMEOVER,SFX_COUNT
+#0,SFX_TITLE,SFX_CHOOSE,SFX_SELECT,SFX_BEGIN,SFX_LINE,SFX_TRIANGLE,SFX_SQUARE,SFX_PENTAGON,SFX_HEXAGON,SFX_EXCELLENT,SFX_GAMEOVER,SFX_COUNT
 
 STASH_LOC = $8000 - STASH_SIZE*4
 STASH_SIZE = (1 + 1 + MUSIC_COUNT*2 + SFX_COUNT*2 + 1) ' +1 for safety or smth IDK it makes stuff work
 STASH_SIGNATURE = $8EC5A60F
+
+SAVE_SIZE = 32 ' longs
 
 OBJ
 
@@ -39,17 +41,17 @@ case n
   other:        
     sdda.stopsfx
 
-PUB readsavesector(where)
+PUB readsavedata(where)
 if savesector
-  sdda.readSector(savesector,where)
+  sdda.put_command(sdda#CMD_READ,savesector,where,SAVE_SIZE)
 
-PUB writesavesector(where)
-if savesector  
-  sdda.writeSector(savesector,where)
+PUB writesavedata(where)
+if savesector
+  sdda.put_command(sdda#CMD_WRITE,savesector,where,SAVE_SIZE)
 
 PUB sdda_start(asmptr)
 sdda.start(sdinfo,asmptr)
-
+return sdda.get_subcode_ptr
 
 PUB unstash
 if result:=long[STASH_LOC]==STASH_SIGNATURE
