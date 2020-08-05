@@ -44,6 +44,7 @@ sdda.setup_music(sdda#MUSIC_BLACKWHITE,contigFile(string("FINAL.VU")),fat.fileSi
 sdda.setup_sfx(sdda#SFX_TITLE,contigFile(string("HEXTITLE.RAW")),fat.fileSize)
 sdda.setup_sfx(sdda#SFX_CHOOSE,contigFile(string("HEXCHOOS.RAW")),fat.fileSize)
 sdda.setup_sfx(sdda#SFX_SELECT,contigFile(string("HEXSELEC.RAW")),fat.fileSize)
+sdda.setup_sfx(sdda#SFX_BACK,contigFile(string("HEXBACK.RAW")),fat.fileSize)
 sdda.setup_sfx(sdda#SFX_BEGIN,contigFile(string("HEXBEGIN.RAW")),fat.fileSize)
 sdda.setup_sfx(sdda#SFX_LINE,contigFile(string("HEXL2.RAW")),fat.fileSize)
 sdda.setup_sfx(sdda#SFX_TRIANGLE,contigFile(string("HEXL3.RAW")),fat.fileSize)
