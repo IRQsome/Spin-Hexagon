@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 require 'rake/clean'
 
-FCACHE_SIZE = 85
+FCACHE_SIZE = 81
 FASTSPINOPTS = "-O1 --fcache=#{FCACHE_SIZE} -l"
 HOMESPUNOPTS = "-b"
 task :default => :build_sd
@@ -25,7 +25,8 @@ file 'hexagon.binary' => ['hexagon.spin',*XASM_DATS] do |t| # TODO: dependency s
 end
 
 file 'hexagon_boot.binary' => 'hexagon_boot.spin' do |t| # TODO: dependency shit and stuff
-  sh "homespun #{HOMESPUNOPTS} #{t.source}"
+  #sh "homespun #{HOMESPUNOPTS} #{t.source}"
+  sh "fastspin #{FASTSPINOPTS} #{t.source}"
 end
 
 def copyfile(*args)
