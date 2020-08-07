@@ -26,20 +26,22 @@ long sfxstops[SFX_COUNT]
 
 
 PUB play_music(n)
-case n
-  0..constant(MUSIC_COUNT-1):
-    sdda.setmusic(musicstarts[n],musicstops[n],musicstarts[n])
-    return true
-  other:
-    sdda.stopmusic
+if savesector
+  case n
+    0..constant(MUSIC_COUNT-1):
+      sdda.setmusic(musicstarts[n],musicstops[n],musicstarts[n])
+      return true
+    other:
+      sdda.stopmusic
 
 PUB play_sfx(n)
-case n
-  0..constant(SFX_COUNT-1):
-    sdda.setsfx(sfxstarts[n],sfxstops[n],0)
-    return true
-  other:        
-    sdda.stopsfx
+if savesector
+  case n
+    0..constant(SFX_COUNT-1):
+      sdda.setsfx(sfxstarts[n],sfxstops[n],0)
+      return true
+    other:      
+      sdda.stopsfx
 
 PUB readsavedata(where)
 if savesector
