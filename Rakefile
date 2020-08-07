@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 require 'rake/clean'
 
-FCACHE_SIZE = 81
+FCACHE_SIZE = 92
 FASTSPINOPTS = "-O1 --fcache=#{FCACHE_SIZE} -l"
 HOMESPUNOPTS = "-b"
 task :default => :build_sd
