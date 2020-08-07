@@ -11,7 +11,7 @@ sdda : "hexagon_sdda.spin"
 plat: "platform.spin"
 
 PUB main | err
-tv.start(12)
+tv.start(plat#TV_BASEPIN)
 tv.str(string("Loading Spin Hexagon...",13,"2020 IRQsome Software",13))
 if err:=\boot
   tv.str(string(13,"ABORT "))

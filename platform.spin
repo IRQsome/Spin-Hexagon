@@ -5,7 +5,7 @@ spiClk        = 24
 spiDI         = 20
 spiCS         = 25   
 
-'' Please note: mono not supported yet
+'' For mono output, set audioRight to -1
 audioLeft     = 11
 audioRight    = 10
 
