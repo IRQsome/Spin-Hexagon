@@ -9,11 +9,12 @@ spiCS         = 25
 audioLeft     = 11
 audioRight    = 10
 
+'' If you don't have SNES controller port, set these to -1
 SNES_CLK      = 16
 SNES_LATCH    = 17
-SNES_PLAYER2  = 18
 SNES_PLAYER1  = 19
 
+'' If you don't have PS/2 Keyboard port, edit hexagon.spin to include DummyKeyboard.spin instead of Keyboard
 PS2_DATA      = 8
 PS2_CLOCK     = 9
 
