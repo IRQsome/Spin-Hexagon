@@ -3,7 +3,7 @@
 require 'rake/clean'
 
 FCACHE_SIZE = 86
-FASTSPINOPTS = "-O1,inline-single,loop-reduce --fcache=#{FCACHE_SIZE} -l"
+FASTSPINOPTS = "-O1,inline-single,loop-reduce -Werror --fcache=#{FCACHE_SIZE} -l"
 HOMESPUNOPTS = "-b"
 task :default => :build_sd
 
@@ -17,7 +17,7 @@ def loadopts
 end
 
 rule '.dat' => '.spin' do |t|
-  sh "fastspin -c #{t.source}"
+  sh "fastspin #{FASTSPINOPTS} -c #{t.source}"
 end
 
 file 'hexagon.binary' => ['hexagon.spin',*XASM_DATS] do |t| # TODO: dependency shit and stuff
