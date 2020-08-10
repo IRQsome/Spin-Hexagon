@@ -31,7 +31,9 @@ end
 
 def copyfile(*args)
   file *args do |t|
-    sh "cp #{t.source} #{t.name}"
+    puts "Copying #{t.source} to #{t.name}"
+    File.copy t.source,t.name
+    #sh "cp #{t.source} #{t.name}"
   end
 end
 
