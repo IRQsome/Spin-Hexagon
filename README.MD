@@ -94,4 +94,8 @@ I've got permission from the creator of _Super Hexagon_ to distribute _Spin Hexa
 > -Terry Cavanagh, in an E-Mail to me 
 
 ### I can't get it to work or have further questions!
-Just ask! Ideally in the SpinHexagon thread on the Parallax Forum.
+Just ask! Ideally in [the SpinHexagon thread on the Parallax Forum](https://forums.parallax.com/discussion/171980/new-p1-game-spin-hexagon).
+
+
+---
+While you're here, care to check out my [Cool Propeller Project List?](https://gitlab.com/Wuerfel_21/coolpropellerprojectlist/-/blob/master/README.md)
