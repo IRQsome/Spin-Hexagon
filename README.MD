@@ -1,37 +1,16 @@
-      #############   ###############   ###############   #############          
-      #############   ###############   ###############   #############          
-    ###############   ###############   ###############   ###############        
-    ###############   ###############   ###############   ###############        
-    ####              ####       ####         ###         ####       ####        
-    ####              ####       ####         ###         ####       ####        
-    ###############   ####       ####         ###         ####       ####        
-    ###############   ###############         ###         ####       ####        
-    ###############   ###############         ###         ####       ####        
-               ####   #############           ###         ####       ####        
-               ####   #############           ###         ####       ####        
-    ###############   ####              ###############   ####       ####        
-    ###############   ####              ###############   ####       ####        
-    #############     ####              ###############   ####       ####        
-    #############     ####              ###############   ####       ####        
-                                                                                 
-                                                                                 
-                  ##    ## ######## ##    ##  ####### ########  ####### #######  
-                  ##    ## ######## ##    ## ######## ######## ######## ######## 
-                  ##    ## ##       ##    ## ##    ## ##       ##    ## ##    ## 
-                  ######## ########  ######  ##    ## ##    ## ##    ## ##    ## 
-                  ######## ########  ######  ######## ##    ## ##    ## ##    ## 
-                  ##    ## ##       ##    ## ######## ##    ## ##    ## ##    ## 
-                  ##    ## ######## ##    ## ##    ## ######## ######## ##    ## 
-                  ##    ##  ####### ##    ## ##    ## #######  #######  ##    ## 
+![logo](logo2.png)
 
 Spin Hexagon
 ============
 
-_Spin Hexagon_ is a port of _Super Hexagon_ to the Propeller 1.
+_Spin Hexagon_ is a port of _Super Hexagon_ to the Propeller 1. It implements most features from the original game.
+(Most notably absent are the pentagon/square modes and the ending sequence.)
 
 ## How to play
 You control the little triangle orbiting the central Hexagon.
 The object of the game is to avoid getting hit by the incoming walls for as long as possible. Simple, isn't it?
+
+![How to play](screenshot/help.png)
 
 ### Controls
 
@@ -51,6 +30,11 @@ The object of the game is to avoid getting hit by the incoming walls for as long
  - SD card (you can play without, but you won't get any sound and won't be able to save your best times and unlocked levels.)
 
 See the [relevant FAQ section](#how-do-i-adapt-it-to-my-board) for porting instructions.
+
+## Screenshots
+![title screen](screenshot/title.png)
+![level select](screenshot/levelselect.png)
+![multic](screenshot/multic.png)
 
 ## FAQ
 ### How do I compile it?
@@ -93,7 +77,10 @@ Simply open up `platform.spin` and adapt it to your needs.
 
 Note that if you want an input method that is neither a SNES controller nor a PS/2 Keyboard, you will have to modify the code - look into `PUB update` in `hexagon.spin`
 
-Also note that C3-style SPI busses are not supported at the moment, but modifying the code for that shouldn't be too difficult - tinySDDA in particular just selects the card once and never deselects it, so you'd only need to tweak the init code. Relatedly, not that the version of `SD-MMC_FATEngine.spin` use by the booter is slightly customized - it has some slight Spin modifications to allow finding the sector adresses of files and a small ASM modification to leave the last 512 bytes of RAM alone when booting.
+Also note that C3-style SPI busses are not supported at the moment, but modifying the code for that shouldn't be too difficult - tinySDDA in particular just selects the card once and never deselects it, so you'd only need to tweak the init code. Relatedly, not that the version of `SD-MMC_FATEngine.spin` used by the booter is slightly customized - it has some slight Spin modifications to allow finding the sector adresses of files and a small ASM modification to leave the last 512 bytes of RAM alone when booting.
+
+Also note that there is currently no VGA support whatsoever.
+If you want to port to VGA (or P2!) please contact me, I can give you some materials and advice.
 
 ### What's the situation with trademarks/copyrights?
 I've got permission from the creator of _Super Hexagon_ to distribute _Spin Hexagon_.
