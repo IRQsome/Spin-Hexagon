@@ -1,6 +1,7 @@
 *.wav filter=lfs diff=lfs merge=lfs -text
 *.raw filter=lfs diff=lfs merge=lfs -text
 *.RAW filter=lfs diff=lfs merge=lfs -text
+*.VU  filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
 *.spin -text
 *.RAW text !filter !merge !diff
