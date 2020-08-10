@@ -35,6 +35,9 @@ See the [relevant FAQ section](#how-do-i-adapt-it-to-my-board) for porting instr
 ![title screen](screenshot/title.png)
 ![level select](screenshot/levelselect.png)
 ![multic](screenshot/multic.png)
+[![actually, i'm a video](http://img.youtube.com/vi/El4ShnSk5Mg/0.jpg)](http://www.youtube.com/watch?v=El4ShnSk5Mg "Video")
+
+^^ That last one is actually a video, click it to watch.
 
 ## FAQ
 ### How do I compile it?
