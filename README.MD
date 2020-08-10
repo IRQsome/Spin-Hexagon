@@ -70,8 +70,12 @@ You will need:
 
 Run the following commands:
 ```batch
-    fastspin -O1,inline-single,loop-reduce --fcache=#86 -l hexagon.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=#86 -l hexagon_boot.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -c Keyboard.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -c tinySDDA.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -c VJET_v00_composite.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -c VJET_v00_rendering.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -l hexagon.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -l hexagon_boot.spin
     copy hexagon.binary HEXAGON.BI2
     copy hexagon_boot.binary HEXAGON.BIN
 ```
