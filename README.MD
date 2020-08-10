@@ -26,7 +26,7 @@ The object of the game is to avoid getting hit by the incoming walls for as long
  - 80 MHz CLKFREQ or more
  - Standard TV output circuit (CRT-based TV/monitor recommended)
  - Standard audio output circuit (stereo recommended)
- - PS/2 keyboard or SNES controller (you can of course modify the code to support whatever you need)
+ - PS/2 keyboard or SNES controller (you can of course easily modify the code to support whatever you need)
  - SD card (you can play without, but you won't get any sound and won't be able to save your best times and unlocked levels.)
 
 See the [relevant FAQ section](#how-do-i-adapt-it-to-my-board) for porting instructions.
@@ -54,12 +54,12 @@ You will need:
 
 Run the following commands:
 ```batch
-    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -c Keyboard.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -c tinySDDA.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -c VJET_v00_composite.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -c VJET_v00_rendering.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -l hexagon.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=#86 -Werror -l hexagon_boot.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c Keyboard.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c tinySDDA.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c VJET_v00_composite.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c VJET_v00_rendering.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -l hexagon.spin
+    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -l hexagon_boot.spin
     copy hexagon.binary HEXAGON.BI2
     copy hexagon_boot.binary HEXAGON.BIN
 ```
