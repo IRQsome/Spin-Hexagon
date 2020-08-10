@@ -66,9 +66,12 @@ Run the following commands:
 (use `cp` instead of `copy` on Linux/BSD/MacOS)
 
 ### How do I install it?
+
 #### With SD card
-Copy `HEXAGON.BI2` and all .RAW and .VU files into the root directorsy of your SD card.
+Copy `HEXAGON.BI2` and all .RAW and .VU files (don't worry, it will yell at you if you miss one) into the root directorsy of your SD card.
+
 Then, if you are using an Operating system that can boot .BIN files, also copy `HEXAGON.BIN`. Else, load `hexagon_boot.binary` into EEPROM or RAM the usual way.
+
 #### Without SD card
 Load `hexagon.binary` into EEPROM or RAM the usual way. You will not get any sound and won't be able to save your best times and unlocked levels.
 
