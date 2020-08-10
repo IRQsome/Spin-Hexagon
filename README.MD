@@ -99,6 +99,12 @@ I've got permission from the creator of _Super Hexagon_ to distribute _Spin Hexa
 ### I can't get it to work or have further questions!
 Just ask! Ideally in [the SpinHexagon thread on the Parallax Forum](https://forums.parallax.com/discussion/171980/new-p1-game-spin-hexagon).
 
+## Acknowledgements
+Thanks go out to:
+ - Terry Cavanagh and Chipzel for _Super Hexagon_
+ - Eric Smith @totalspectrum for fastspin and quick response to bug reports
+ - Chip Gracey for the Propeller chip and some of the included driver code
+ - Everyone who finds some joy in this project
 
 ---
 While you're here, care to check out my [Cool Propeller Project List?](https://gitlab.com/Wuerfel_21/coolpropellerprojectlist/-/blob/master/README.md)
