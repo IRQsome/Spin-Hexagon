@@ -1,3 +1,6 @@
+## Note 1: Don't use the "download ZIP" feature, it won't properly download LFS objects... Either clone the repository or use the downloads on the releases page (A correct download will be ~130 MB).
+## Note 2:If cloning fails for you due to GitHub's stupid bandwidth limit, please check out [the mirror repo on GitLab](https://gitlab.com/irqsome/Spin-Hexagon). Sorry for the inconvenience.
+
 ![logo](logo.gif)
 
 Spin Hexagon
