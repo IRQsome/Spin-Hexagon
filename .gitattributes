@@ -5,4 +5,3 @@
 *.png -text !filter !merge !diff
 *.gif -text !filter !merge !diff
 *.spin -text
-*.wav text !filter !merge !diff
