@@ -44,7 +44,7 @@ See the [relevant FAQ section](#how-do-i-adapt-it-to-my-board) for porting instr
 I like to use the rake build system, but if you don't want to install that, I've provided instructions for building manually.
 #### Using the Rakefile
 You will need:
- - fastspin 4.3.0 (higher should work). At the time of writing, this version has not been released, use a git build.
+ - fastspin 4.3.0 (higher should work).
  - ruby 2.6 (lower/higher should work)
  - rake (usually bundled with ruby)
 
@@ -53,7 +53,7 @@ Simply type `rake` and it will compile everything you need. Head on to the insta
 If you have modified any file and want to re-build, you might have to run `rake clean` first (this wouldn't be necessary if fastspin could emit dependency info - get on it, Eric :) )
 #### Manually
 You will need:
- - fastspin 4.3.0 (higher should work). At the time of writing, this version has not been released, use a git build.
+ - fastspin 4.3.0 (higher should work).
 
 Run the following commands:
 ```batch
