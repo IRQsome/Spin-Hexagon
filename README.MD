@@ -44,7 +44,7 @@ See the [relevant FAQ section](#how-do-i-adapt-it-to-my-board) for porting instr
 I like to use the rake build system, but if you don't want to install that, I've provided instructions for building manually.
 #### Using the Rakefile
 You will need:
- - fastspin 4.3.0 (higher should work).
+ - [https://github.com/totalspectrum/spin2cpp/releases](flexspin/fastspin) 4.3.0 or higher. (Confirmed OK: 4.3.0, 5.0.0)
  - ruby 2.6 (lower/higher should work)
  - rake (usually bundled with ruby)
 
@@ -53,16 +53,16 @@ Simply type `rake` and it will compile everything you need. Head on to the insta
 If you have modified any file and want to re-build, you might have to run `rake clean` first (this wouldn't be necessary if fastspin could emit dependency info - get on it, Eric :) )
 #### Manually
 You will need:
- - fastspin 4.3.0 (higher should work).
+ - [https://github.com/totalspectrum/spin2cpp/releases](flexspin/fastspin) 4.3.0 or higher. (Note that versions below 5.0.0 are called "fastspin", adjust the commands accordingly if using such a version)
 
 Run the following commands:
 ```batch
-    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c Keyboard.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c tinySDDA.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c VJET_v00_composite.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c VJET_v00_rendering.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -l hexagon.spin
-    fastspin -O1,inline-single,loop-reduce --fcache=86 -Werror -l hexagon_boot.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c Keyboard.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c tinySDDA.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c VJET_v00_composite.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c VJET_v00_rendering.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -l hexagon.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -l hexagon_boot.spin
     copy hexagon.binary HEXAGON.BI2
     copy hexagon_boot.binary HEXAGON.BIN
 ```

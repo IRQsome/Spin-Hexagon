@@ -2,9 +2,29 @@
 # frozen_string_literal: true
 require 'rake/clean'
 
+# Cross-platform way of finding an executable in the $PATH.
+#   
+#   which('ruby') #=> /usr/bin/ruby
+#   See: https://stackoverflow.com/a/5471032
+def which(cmd)
+  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    exts.each do |ext|
+      exe = File.join(path, "#{cmd}#{ext}")
+      return exe if File.executable?(exe) && !File.directory?(exe)
+    end
+  end
+  nil
+end
+
+# FastSpin renmed to FlexSpin in version 5.0, autodetect which to use
+HAVE_FLEXSPIN = !!which("flexspin")
+HAVE_FASTSPIN = !!which("fastspin")
+FASTSPIN_NAME = ENV['FASTSPIN_NAME'] || ((HAVE_FASTSPIN && !HAVE_FLEXSPIN) ? "fastspin" : "flexspin")
+  
+
 FCACHE_SIZE = 86
 FASTSPINOPTS = "-O1,inline-single,loop-reduce -Werror --fcache=#{FCACHE_SIZE} -l"
-HOMESPUNOPTS = "-b"
 task :default => :build_sd
 
 CLEAN.include ["*.binary","*.BIN","*.BI2","*.dat"]
@@ -17,16 +37,16 @@ def loadopts
 end
 
 rule '.dat' => '.spin' do |t|
-  sh "fastspin #{FASTSPINOPTS} -c #{t.source}"
+  sh "#{FASTSPIN_NAME} #{FASTSPINOPTS} -c #{t.source}"
 end
 
 file 'hexagon.binary' => ['hexagon.spin',*XASM_DATS] do |t| # TODO: dependency shit and stuff
-  sh "fastspin #{FASTSPINOPTS} #{t.source}"
+  sh "#{FASTSPIN_NAME} #{FASTSPINOPTS} #{t.source}"
 end
 
 file 'hexagon_boot.binary' => 'hexagon_boot.spin' do |t| # TODO: dependency shit and stuff
   #sh "homespun #{HOMESPUNOPTS} #{t.source}"
-  sh "fastspin #{FASTSPINOPTS} #{t.source}"
+  sh "#{FASTSPIN_NAME} #{FASTSPINOPTS} #{t.source}"
 end
 
 def copyfile(*args)
