@@ -44,7 +44,7 @@ See the [relevant FAQ section](#how-do-i-adapt-it-to-my-board) for porting instr
 I like to use the rake build system, but if you don't want to install that, I've provided instructions for building manually.
 #### Using the Rakefile
 You will need:
- - [flexspin/fastspin](https://github.com/totalspectrum/spin2cpp/releases) 4.3.0 or higher. (Confirmed OK: 4.3.0, 5.0.0)
+ - [flexspin/fastspin](https://github.com/totalspectrum/spin2cpp/releases) 4.3.0 or 5.0.0. (Current version has regressions preventing it from building)
  - ruby 2.6 (lower/higher should work)
  - rake (usually bundled with ruby)
 
