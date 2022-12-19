@@ -57,12 +57,12 @@ You will need:
 
 Run the following commands:
 ```batch
-    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c Keyboard.spin
-    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c tinySDDA.spin
-    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c VJET_v00_composite.spin
-    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -c VJET_v00_rendering.spin
-    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -l hexagon.spin
-    flexspin -O1,inline-single,loop-reduce --fcache=86 -Werror -l hexagon_boot.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -c Keyboard.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -c tinySDDA.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -c VJET_v00_composite.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -c VJET_v00_rendering.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -l hexagon.spin
+    flexspin -O1,inline-single,loop-reduce --fcache=86 -l hexagon_boot.spin
     copy hexagon.binary HEXAGON.BI2
     copy hexagon_boot.binary HEXAGON.BIN
 ```

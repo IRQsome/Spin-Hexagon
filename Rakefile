@@ -24,7 +24,7 @@ FASTSPIN_NAME = ENV['FASTSPIN_NAME'] || ((HAVE_FASTSPIN && !HAVE_FLEXSPIN) ? "fa
   
 
 FCACHE_SIZE = 86
-FASTSPINOPTS = "-O1,inline-single,loop-reduce -Werror --fcache=#{FCACHE_SIZE} -l"
+FASTSPINOPTS = "-O1,inline-single,loop-reduce --fcache=#{FCACHE_SIZE} -l"
 task :default => :build_sd
 
 CLEAN.include ["*.binary","*.BIN","*.BI2","*.dat"]
